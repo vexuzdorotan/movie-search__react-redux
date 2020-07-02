@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-// import omdb from '../api/omdb';
+import GoogleAuth from './GoogleAuth';
 import { listMovies } from '../actions/index.js';
 
 class SearchMovies extends Component {
   formOnSubmit = (formValues) => {
-    // this.searchMovies(formValues);
     this.props.listMovies(formValues.search);
   };
 
@@ -53,12 +52,10 @@ class SearchMovies extends Component {
                 />
               </div>
 
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
+              <button className="btn btn-success my-2 my-sm-0" type="submit">
                 Search
               </button>
+              <GoogleAuth />
             </form>
           </div>
         </nav>
@@ -77,7 +74,7 @@ const formWrapped = reduxForm({
 
 const mapStateToProps = (state) => {
   return {
-    listMovies: state.movie,
+    listMovies: state.searchMovie,
   };
 };
 
