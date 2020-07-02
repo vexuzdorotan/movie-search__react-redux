@@ -3,28 +3,20 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import omdb from '../api/omdb';
+// import omdb from '../api/omdb';
+import { listMovies } from '../actions/index.js';
 
 class SearchMovies extends Component {
-  buttonOnClick = (e) => {
-    e.preventDefault();
-    // async (title) => {
-    //   const response = await omdb.get('', {
-    //     params: {
-    //       s: title,
-    //     },
-    //   });
-
-    //   console.log(response.data);
-    //   return response.data;
-    // };
+  formOnSubmit = (formValues) => {
+    // this.searchMovies(formValues);
+    this.props.listMovies(formValues.search);
   };
 
   renderList() {
     return (
       <header>
         <nav className="navbar navbar-expand-md navbar-light fixed-top bg-light">
-          <Link className="navbar-brand text-success" to="#">
+          <Link className="navbar-brand text-success font-weight-bold" to="/">
             YTS.vex
           </Link>
           <button
@@ -48,7 +40,7 @@ class SearchMovies extends Component {
             </ul>
 
             <form
-              onSubmit={this.buttonOnClick}
+              onSubmit={this.props.handleSubmit(this.formOnSubmit)}
               className="form-inline mt-2 mt-md-0"
             >
               <div>
@@ -83,4 +75,10 @@ const formWrapped = reduxForm({
   form: 'searchMovie',
 })(SearchMovies);
 
-export default connect(null)(formWrapped);
+const mapStateToProps = (state) => {
+  return {
+    listMovies: state.movie,
+  };
+};
+
+export default connect(mapStateToProps, { listMovies })(formWrapped);

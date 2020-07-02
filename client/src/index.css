@@ -2,3 +2,13 @@ body {
   background: #444;
   color: #f4f4f4;
 }
+
+/* Card */
+.card {
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  background: #5cb85c;
+  transform: scale(1.03);
+}

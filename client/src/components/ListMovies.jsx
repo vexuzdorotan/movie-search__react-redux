@@ -1,33 +1,58 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
-const ListMovies = () => {
-  return (
-    <Fragment>
-      <section id="list-movie">
-        <div className="bg-dark text-center py-5 mt-5">
-          <div className="container">
-            <div className="row">
-              <div className="card-columns">
-                <div className="card">
-                  <img src="..." className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">
-                      Card title that wraps to a new line
-                    </h5>
-                    <p className="card-text">
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
-                  </div>
+import { listMovies } from '../actions/index';
+class ListMovies extends Component {
+  componentDidMount() {
+    console.log(this.props.movies);
+  }
+
+  displayListMovies() {
+    if (!this.props.movies.Search) {
+      return <div className="display-4 text-center">Search Movie...</div>;
+    }
+
+    return this.props.movies.Search.map((movie) => {
+      return (
+        <div className="card" key={movie.imdbID}>
+          <div className="card-body">
+            <img
+              className="card-img-top"
+              src={movie.Poster}
+              alt={movie.Title}
+            />
+            {/* <h5 className="card-title text-dark">{movie.Title}</h5> */}
+          </div>
+          <h5 className="card-title text-dark">{movie.Title}</h5>
+        </div>
+      );
+    });
+  }
+
+  render() {
+    return (
+      <Fragment>
+        {console.log(this.props.movies.Search)}
+        <section id="list-movie">
+          <div className="bg-dark text-center py-5 mt-5">
+            <div className="container">
+              <div className="row">
+                <div className="card-columns p-2">
+                  {this.displayListMovies()}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </Fragment>
-  );
+        </section>
+      </Fragment>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movie,
+  };
 };
 
-export default ListMovies;
+export default connect(mapStateToProps, { listMovies })(ListMovies);
