@@ -47,7 +47,7 @@ class SearchMovies extends Component {
                   to="/favorites"
                   activeClassName="active"
                 >
-                  My Favorites
+                  Our Favorites
                 </NavLink>
               </li>
             </ul>
