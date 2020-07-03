@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
@@ -31,10 +31,24 @@ class SearchMovies extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <Link className="nav-link" to="#">
-                  Home <span className="sr-only">(current)</span>
-                </Link>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  className="nav-link"
+                  to="/"
+                  activeClassName="active"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="/favorites"
+                  activeClassName="active"
+                >
+                  My Favorites
+                </NavLink>
               </li>
             </ul>
 
