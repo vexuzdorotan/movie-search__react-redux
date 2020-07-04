@@ -24,14 +24,18 @@ class App extends Component {
               exact
               component={CreateMovie}
             ></Route>
-            <Route path="/favorites/read" exact component={ReadMovie}></Route>
             <Route
-              path="/favorites/update"
+              path="/favorites/read/:id"
+              exact
+              component={ReadMovie}
+            ></Route>
+            <Route
+              path="/favorites/update/:id"
               exact
               component={UpdateMovie}
             ></Route>
             <Route
-              path="/favorites/delete"
+              path="/favorites/delete/:id"
               exact
               component={DeleteMovie}
             ></Route>

@@ -33,7 +33,7 @@ export const listMovies = (searchValue) => async (dispatch) => {
 
   dispatch({
     type: LIST_MOVIES,
-    payload: response.data,
+    payload: response.data.Search,
   });
 };
 
@@ -53,6 +53,16 @@ export const readMovies = () => async (dispatch) => {
 
   dispatch({
     type: READ_MOVIES,
+    payload: response.data,
+  });
+};
+
+export const readMovie = (id) => async (dispatch) => {
+  const response = await favorites.get(`/favorites/${id}`);
+  console.log(response.data);
+
+  dispatch({
+    type: READ_MOVIE,
     payload: response.data,
   });
 };

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+
 import { connect } from 'react-redux';
 
 import favorites from '../api/favorites';
@@ -20,15 +21,15 @@ class ListMovies extends Component {
   };
 
   displayListMovies() {
-    if (!this.props.movies.Search) {
+    if (this.props.movies.length === 0) {
       return <div className="display-4 text-center">Search Movie...</div>;
     }
 
-    return this.props.movies.Search.map((movie) => {
+    return this.props.movies.map((movie) => {
       return (
         <div
           className="card"
-          key={movie.imdbID}
+          key={movie.id}
           onClick={() => this.addToFavorites(movie)}
         >
           <div className="card-body">
@@ -65,7 +66,7 @@ class ListMovies extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.searchMovie,
+    movies: Object.values(state.searchMovie),
     auth: state.auth,
   };
 };

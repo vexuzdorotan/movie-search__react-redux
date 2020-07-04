@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { readMovies } from '../../actions';
@@ -15,16 +16,18 @@ class ReadMovies extends Component {
 
     return this.props.movies.map((movie) => {
       return (
-        <div className="card" key={movie.imdbID}>
-          <div className="card-body">
-            <img
-              className="card-img-top"
-              src={movie.Poster}
-              alt={movie.Title}
-            />
+        <Link to={`/favorites/read/${movie.id}`} key={movie.id}>
+          <div className="card">
+            <div className="card-body">
+              <img
+                className="card-img-top"
+                src={movie.Poster}
+                alt={movie.Title}
+              />
+            </div>
+            <h5 className="card-title text-dark">{movie.Title}</h5>
           </div>
-          <h5 className="card-title text-dark">{movie.Title}</h5>
-        </div>
+        </Link>
       );
     });
   }
@@ -50,7 +53,7 @@ class ReadMovies extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.favoriteMovie,
+    movies: Object.values(state.favoriteMovie),
   };
 };
 

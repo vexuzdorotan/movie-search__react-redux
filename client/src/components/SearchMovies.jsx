@@ -47,7 +47,7 @@ class SearchMovies extends Component {
                   to="/favorites"
                   activeClassName="active"
                 >
-                  Our Favorites
+                  My Favorites
                 </NavLink>
               </li>
             </ul>
@@ -86,10 +86,4 @@ const formWrapped = reduxForm({
   form: 'searchMovie',
 })(SearchMovies);
 
-const mapStateToProps = (state) => {
-  return {
-    listMovies: state.searchMovie,
-  };
-};
-
-export default connect(mapStateToProps, { listMovies })(formWrapped);
+export default connect(null, { listMovies })(formWrapped);
