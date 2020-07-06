@@ -1,49 +1,13 @@
 {
   "favorites": [
     {
-      "Title": "The Karate Kid",
-      "Year": "1984",
-      "imdbID": "tt0087538",
+      "Title": "Avengers: Infinity War",
+      "Year": "2018",
+      "imdbID": "tt4154756",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg",
       "userId": "114940025226562441222",
       "id": 1
-    },
-    {
-      "Title": "The Karate Kid Part III",
-      "Year": "1989",
-      "imdbID": "tt0097647",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BODk0NzA4MTMtNGQ3Zi00OTdlLThiZmQtOTI0YWEyNDFiMTg2XkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg",
-      "userId": "114940025226562441222",
-      "id": 2
-    },
-    {
-      "Title": "Avengers Assemble",
-      "Year": "2013–",
-      "imdbID": "tt2455546",
-      "Type": "series",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMTY0NTUyMDQwOV5BMl5BanBnXkFtZTgwNjAwMTA0MDE@._V1_SX300.jpg",
-      "userId": "114940025226562441222",
-      "id": 3
-    },
-    {
-      "Title": "Pinoy Big Brother Celebrity Edition",
-      "Year": "2006–",
-      "imdbID": "tt0764860",
-      "Type": "series",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BZmQ2NDJmMTctMmFkNy00YmY4LWI2OGEtY2ZhZWZjYzM5ZWI1XkEyXkFqcGdeQXVyNzcwNDU2NDM@._V1_SX300.jpg",
-      "userId": "114940025226562441222",
-      "id": 4
-    },
-    {
-      "Title": "Karate-Robo Zaborgar",
-      "Year": "2011",
-      "imdbID": "tt1645048",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMDQzODk5YTQtZTg0OC00MDVmLTk5ZTgtZGVlYzUyZTEzYjQ2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-      "userId": "114940025226562441222",
-      "id": 5
     }
   ]
 }

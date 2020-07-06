@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signIn, signOut } from '../actions';
+import { signIn, signOut, readMovies } from '../actions';
 
 class GoogleAuth extends React.Component {
   componentDidMount() {
@@ -17,12 +17,13 @@ class GoogleAuth extends React.Component {
             this.auth.isSignedIn.listen(this.onAuthChange);
           });
       });
-    }, 1000);
+    }, 500);
   }
 
   onAuthChange = (isSignedIn) => {
     if (isSignedIn) {
       this.props.signIn(this.auth.currentUser.get().getId());
+      this.props.readMovies();
     } else {
       this.props.signOut();
     }
@@ -78,4 +79,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
+export default connect(mapStateToProps, { signIn, signOut, readMovies })(
+  GoogleAuth
+);

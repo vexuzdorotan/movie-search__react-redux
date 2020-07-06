@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { readMovies } from '../../actions';
+import { readMovies, deleteMovie } from '../../actions';
 
 class ReadMovies extends Component {
   componentDidMount() {
@@ -16,18 +16,31 @@ class ReadMovies extends Component {
 
     return this.props.movies.map((movie) => {
       return (
-        <Link to={`/favorites/read/${movie.id}`} key={movie.id}>
-          <div className="card">
-            <div className="card-body">
+        <div className="card" key={movie.id}>
+          <div className="card-body">
+            <Link to={`/favorites/read/${movie.id}`}>
               <img
                 className="card-img-top"
                 src={movie.Poster}
                 alt={movie.Title}
               />
-            </div>
-            <h5 className="card-title text-dark">{movie.Title}</h5>
+            </Link>
           </div>
-        </Link>
+          <h5 className="card-title text-dark">{movie.Title}</h5>
+          <Link
+            to={`/favorites/edit/${movie.id}`}
+            className="btn btn-sm btn-warning mx-3 mb-3"
+          >
+            Edit
+          </Link>
+          <button
+            onClick={() => this.props.deleteMovie(movie.id)}
+            className="btn btn-sm btn-danger mx-3 mb-3"
+            style={{ zIndex: 5 }}
+          >
+            Delete
+          </button>
+        </div>
       );
     });
   }
@@ -57,4 +70,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { readMovies })(ReadMovies);
+export default connect(mapStateToProps, { readMovies, deleteMovie })(
+  ReadMovies
+);

@@ -79,4 +79,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { readMovies, readMovie })(ReadMovie);
+export default connect(mapStateToProps, { readMovie })(ReadMovie);

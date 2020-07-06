@@ -29,7 +29,7 @@ class ListMovies extends Component {
       return (
         <div
           className="card"
-          key={movie.id}
+          key={movie.imdbID}
           onClick={() => this.addToFavorites(movie)}
         >
           <div className="card-body">
