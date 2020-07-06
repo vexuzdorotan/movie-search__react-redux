@@ -38,9 +38,17 @@ export const listMovies = (searchValue) => async (dispatch) => {
 };
 
 export const createMovies = (favObj) => async (dispatch, getState) => {
-  const { userId } = getState().auth;
+  let { userId } = getState().auth;
 
-  const response = await favorites.post('/favorites', { ...favObj, userId });
+  if (!userId) {
+    userId = 0;
+  }
+
+  const response = await favorites.post('/favorites', {
+    ...favObj,
+    userId,
+    reaction: '',
+  });
 
   dispatch({
     type: CREATE_MOVIE,
@@ -49,7 +57,23 @@ export const createMovies = (favObj) => async (dispatch, getState) => {
 };
 
 export const readMovies = () => async (dispatch, getState) => {
-  const { userId } = getState().auth;
+  let { userId } = getState().auth;
+
+  if (!userId) {
+    userId = 0;
+  }
+  // let payload = {};
+
+  // if (userId) {
+  //   const response = await favorites.get(`/favorites`, {
+  //     params: {
+  //       userId,
+  //     },
+  //   });
+
+  //   payload = response.data;
+  // }
+
   const response = await favorites.get(`/favorites`, {
     params: {
       userId,
@@ -72,6 +96,15 @@ export const readMovie = (id) => async (dispatch, getState) => {
 
   dispatch({
     type: READ_MOVIE,
+    payload: response.data,
+  });
+};
+
+export const updateMovie = (id, formValues) => async (dispatch) => {
+  const response = await favorites.patch(`favorites/${id}`, formValues);
+
+  dispatch({
+    type: UPDATE_MOVIE,
     payload: response.data,
   });
 };

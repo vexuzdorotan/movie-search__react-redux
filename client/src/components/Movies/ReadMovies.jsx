@@ -5,13 +5,9 @@ import { connect } from 'react-redux';
 import { readMovies, deleteMovie } from '../../actions';
 
 class ReadMovies extends Component {
-  componentDidMount() {
-    this.props.readMovies();
-  }
-
   displayListMovies() {
     if (Object.entries(this.props.movies).length === 0) {
-      return <div className="display-4 text-center">Loading...</div>;
+      return <div className="text-center">Loading...</div>;
     }
 
     return this.props.movies.map((movie) => {
@@ -28,7 +24,7 @@ class ReadMovies extends Component {
           </div>
           <h5 className="card-title text-dark">{movie.Title}</h5>
           <Link
-            to={`/favorites/edit/${movie.id}`}
+            to={`/favorites/update/${movie.id}`}
             className="btn btn-sm btn-warning mx-3 mb-3"
           >
             Edit
@@ -67,6 +63,7 @@ class ReadMovies extends Component {
 const mapStateToProps = (state) => {
   return {
     movies: Object.values(state.favoriteMovie),
+    isSignedIn: state.auth.isSignedIn,
   };
 };
 

@@ -1,14 +1,66 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import _ from 'lodash';
+
+import { readMovie, updateMovie } from '../../actions';
 
 class UpdateMovie extends Component {
-  render() {
+  componentDidMount() {
+    this.props.readMovie(this.props.match.params.id);
+  }
+
+  onFormSubmit = (formValues) => {
+    this.props.updateMovie(this.props.match.params.id, formValues);
+  };
+
+  renderList() {
+    if (!this.props.movie) {
+      return console.log('Loading');
+    }
+
     return (
       <Fragment>
         <section id="list-movie">
           <div className="bg-dark text-center py-5 mt-5">
             <div className="container">
               <div className="row">
-                <div className="col">UpdateMovie</div>
+                <div className="col">
+                  <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div className="col p-4 d-flex flex-column position-static">
+                      <h3 className="mb-0">{this.props.movie.Title}</h3>
+                      <div className="mb-1 text-muted">
+                        {this.props.movie.Year}
+                      </div>
+                      {/* <p className="card-text mt-5 mb-auto">
+                        {this.props.movie.reaction}
+                      </p> */}
+                      <form
+                        onSubmit={this.props.handleSubmit(this.onFormSubmit)}
+                      >
+                        <div>
+                          <label>Enter your reaction:</label>
+                          <Field
+                            className="form-control mr-sm-2 mb-5"
+                            name="reaction"
+                            component="textarea"
+                            rows="15"
+                          />
+                        </div>
+
+                        <button
+                          className="btn btn-success my-2 my-sm-0"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </form>
+                      {/* <a href="#" className="stretched-link">
+                        Continue reading
+                      </a> */}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -16,6 +68,27 @@ class UpdateMovie extends Component {
       </Fragment>
     );
   }
+
+  render() {
+    return <Fragment>{this.renderList()}</Fragment>;
+  }
 }
 
-export default UpdateMovie;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    movie: state.favoriteMovie[ownProps.match.params.id],
+    initialValues: _.pick(
+      state.favoriteMovie[ownProps.match.params.id],
+      'reaction'
+    ),
+  };
+};
+
+const formWrapped = reduxForm({
+  form: 'updateMovie',
+  enableReinitialize: true,
+})(UpdateMovie);
+
+export default connect(mapStateToProps, { readMovie, updateMovie })(
+  formWrapped
+);

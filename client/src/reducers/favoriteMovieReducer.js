@@ -1,12 +1,22 @@
 import _ from 'lodash';
 
-import { READ_MOVIES, READ_MOVIE, DELETE_MOVIE } from '../actions/types';
+import {
+  CREATE_MOVIE,
+  READ_MOVIES,
+  READ_MOVIE,
+  UPDATE_MOVIE,
+  DELETE_MOVIE,
+} from '../actions/types';
 
 export default (state = {}, action) => {
   switch (action.type) {
+    case CREATE_MOVIE:
+      return { ...state, [action.payload.id]: action.payload };
     case READ_MOVIES:
-      return { ...state, ..._.mapKeys(action.payload, 'id') };
+      return { ...{}, ..._.mapKeys(action.payload, 'id') };
     case READ_MOVIE:
+      return { ...state, [action.payload.id]: action.payload };
+    case UPDATE_MOVIE:
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_MOVIE:
       return _.omit(state, action.payload);

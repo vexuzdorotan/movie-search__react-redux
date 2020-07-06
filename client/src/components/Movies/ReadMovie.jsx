@@ -39,20 +39,9 @@ class ReadMovie extends Component {
                         {this.props.movie.Year}
                       </div>
                       <p className="card-text mb-auto">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Labore eveniet laboriosam, quaerat dolorum fugiat
-                        suscipit optio porro dolor et nam atque ab adipisci ipsa
-                        quas assumenda ea explicabo voluptatem facilis rem quos
-                        enim quae at. Veniam, ab sint! Asperiores est aspernatur
-                        accusamus, culpa vitae voluptatem voluptate consectetur
-                        ullam a eligendi cumque reiciendis et voluptates sunt. A
-                        quo deserunt optio voluptatem repudiandae architecto
-                        voluptatibus eos impedit, inventore, commodi asperiores
-                        cumque ipsa unde necessitatibus. Harum maxime natus
-                        architecto, ab quas sequi, a reiciendis ipsum voluptates
-                        molestiae, sed corporis? Atque, impedit, amet itaque
-                        sequi quod blanditiis delectus nobis neque velit veniam
-                        magni aperiam!
+                        {this.props.movie.reaction
+                          ? this.props.movie.reaction
+                          : '*No reaction essay yet. Please add.*'}
                       </p>
                       {/* <a href="#" className="stretched-link">
                         Continue reading
