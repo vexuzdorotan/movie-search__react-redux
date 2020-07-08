@@ -28,7 +28,7 @@ class GoogleAuth extends React.Component {
       );
     } else {
       this.props.signOut();
-      this.props.onSetProfile('Global Public Guest');
+      this.props.onSetProfile('Public Guest');
     }
     this.props.readMovies();
   };
@@ -44,7 +44,7 @@ class GoogleAuth extends React.Component {
   renderAuthButton() {
     if (this.props.isSignedIn === null) {
       return (
-        <button className="btn btn-outline-warning ml-2 my-2 my-sm-0">
+        <button className="btn btn-outline-warning mr-2 my-2 my-sm-0">
           <i className="google icon"></i>
           Loading User
         </button>
@@ -53,7 +53,7 @@ class GoogleAuth extends React.Component {
       return (
         <button
           onClick={this.onSignOutClick}
-          className="btn btn-outline-danger ml-2 my-2 my-sm-0"
+          className="btn btn-outline-danger mr-2 my-2 my-sm-0"
         >
           <i className="google icon"></i>
           Sign Out
@@ -63,7 +63,7 @@ class GoogleAuth extends React.Component {
       return (
         <button
           onClick={this.onSignInClick}
-          className="btn btn-outline-success ml-2 my-2 my-sm-0"
+          className="btn btn-outline-success mr-2 my-2 my-sm-0"
         >
           <i className="google icon"></i>
           Sign In with Google

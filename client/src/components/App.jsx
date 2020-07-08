@@ -3,12 +3,14 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import history from '../history';
 import SearchMovies from './SearchMovies';
+import Jumbotron from './Jumbotron';
 import ListMovies from './ListMovies';
 import ReadMovies from './Movies/ReadMovies';
 import CreateMovie from './Movies/CreateMovie';
 import ReadMovie from './Movies/ReadMovie';
 import UpdateMovie from './Movies/UpdateMovie';
 import DeleteMovie from './Movies/DeleteMovie';
+import NoMatch from './NoMatch';
 
 class App extends Component {
   render() {
@@ -16,6 +18,7 @@ class App extends Component {
       <Fragment>
         <Router history={history}>
           <SearchMovies />
+          <Route component={Jumbotron}></Route>
           <Switch>
             <Route path="/" exact component={ListMovies}></Route>
             <Route path="/favorites" exact component={ReadMovies}></Route>
@@ -39,6 +42,7 @@ class App extends Component {
               exact
               component={DeleteMovie}
             ></Route>
+            <Route component={NoMatch}></Route>
           </Switch>
         </Router>
       </Fragment>

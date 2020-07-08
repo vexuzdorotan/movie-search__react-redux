@@ -27,7 +27,7 @@ class SearchMovies extends Component {
     return (
       <Fragment>
         <header>
-          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top bg-light">
             <Link className="navbar-brand text-success font-weight-bold" to="/">
               YTS.vex
             </Link>
@@ -66,28 +66,32 @@ class SearchMovies extends Component {
                 </li>
               </ul>
 
-              <span className="navbar-text mr-2">
+              <span className="navbar-text text-danger mr-2">
                 Login as {this.state.profile}
               </span>
+
+              <GoogleAuth onSetProfile={this.onSetProfile} />
 
               <form
                 onSubmit={this.props.handleSubmit(this.formOnSubmit)}
                 className="form-inline mt-2 mt-md-0"
               >
                 <div>
-                  <label htmlFor="search"></label>
                   <Field
-                    className="form-control mr-sm-2"
+                    className="form-control my-2 my-sm-0"
                     name="search"
                     component="input"
                     type="text"
+                    placeholder="Type a movie or series"
                   />
-                </div>
 
-                <button className="btn btn-success my-2 my-sm-0" type="submit">
-                  Search
-                </button>
-                <GoogleAuth onSetProfile={this.onSetProfile} />
+                  <button
+                    className="btn btn-success my-2 my-sm-0"
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
               </form>
             </div>
           </nav>

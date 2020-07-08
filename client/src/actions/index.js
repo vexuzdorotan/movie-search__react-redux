@@ -1,8 +1,10 @@
 import omdb from '../api/omdb';
+import pluralize from 'pluralize';
 import favorites from '../api/favorites';
 import {
   SIGN_IN,
   SIGN_OUT,
+  JUMBOTRON,
   LIST_MOVIES,
   CREATE_MOVIE,
   READ_MOVIES,
@@ -17,11 +19,42 @@ export const signIn = (userId) => {
     payload: userId,
   };
 };
-
+//
 export const signOut = () => {
   return {
     type: SIGN_OUT,
   };
+};
+
+export const jumbotron = (pathname) => async (dispatch, getState) => {
+  let textData, display;
+  let favLength = Object.keys(getState().favoriteMovie).length;
+
+  if (favLength === 0) {
+    display = 'Welcome. Add your movies.';
+  } else {
+    display = `You have ${favLength} ${pluralize('favorite', favLength)}.`;
+  }
+
+  if (pathname === '/') {
+    textData = {
+      display,
+      lead: 'lead/',
+      paragraph: 'paragraph/',
+    };
+  } else if (pathname === '/favorites') {
+    textData = {
+      display,
+      lead:
+        'Click the poster image to view details. Click "Edit" to add your reaction essay. Click "Delete" to remove your selected movie or series on the list.',
+      paragraph: 'paragraph/favorites',
+    };
+  }
+
+  dispatch({
+    type: JUMBOTRON,
+    payload: textData,
+  });
 };
 
 export const listMovies = (searchValue) => async (dispatch) => {
@@ -62,17 +95,6 @@ export const readMovies = () => async (dispatch, getState) => {
   if (!userId) {
     userId = 0;
   }
-  // let payload = {};
-
-  // if (userId) {
-  //   const response = await favorites.get(`/favorites`, {
-  //     params: {
-  //       userId,
-  //     },
-  //   });
-
-  //   payload = response.data;
-  // }
 
   const response = await favorites.get(`/favorites`, {
     params: {

@@ -1,6 +1,8 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
 
+export const JUMBOTRON = 'JUMBOTRON';
+
 export const LIST_MOVIES = 'LIST_MOVIES';
 
 export const CREATE_MOVIE = 'CREATE_MOVIE';

@@ -45,7 +45,7 @@ class ReadMovies extends Component {
     return (
       <Fragment>
         <section id="read-movies">
-          <div className="bg-dark text-center py-5 mt-5">
+          <div className="bg-dark text-center py-5">
             <div className="container">
               <div className="row">
                 <div className="card-columns p-2">
