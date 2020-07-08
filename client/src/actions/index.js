@@ -1,5 +1,4 @@
 import omdb from '../api/omdb';
-import pluralize from 'pluralize';
 import favorites from '../api/favorites';
 import {
   SIGN_IN,
@@ -27,27 +26,22 @@ export const signOut = () => {
 };
 
 export const jumbotron = (pathname) => async (dispatch, getState) => {
-  let textData, display;
-  let favLength = Object.keys(getState().favoriteMovie).length;
-
-  if (favLength === 0) {
-    display = 'Welcome. Add your movies.';
-  } else {
-    display = `You have ${favLength} ${pluralize('favorite', favLength)}.`;
-  }
+  let textData;
 
   if (pathname === '/') {
     textData = {
-      display,
-      lead: 'lead/',
-      paragraph: 'paragraph/',
+      display: '. Add more!',
+      lead: 'Click posters to add to your favorites.',
+      paragraph:
+        'A movie (or series, games, etc.) searching app! Sign in with your Google account, save your favorites, and add your reaction essay. This app is using OMDb API (The Open Movie Database). It is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by their users.',
     };
   } else if (pathname === '/favorites') {
     textData = {
-      display,
+      display: ' here!',
       lead:
         'Click the poster image to view details. Click "Edit" to add your reaction essay. Click "Delete" to remove your selected movie or series on the list.',
-      paragraph: 'paragraph/favorites',
+      paragraph:
+        'This app is inspired by YTS (aka YIFY). It is practically became an overnight sensation among movie geeks by hosting high-quality torrents of recently released movies.',
     };
   }
 

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import history from '../history';
 import 'jquery/dist/jquery.min.js';
 import 'bootstrap/js/src/collapse.js';
 
@@ -61,7 +62,11 @@ class SearchMovies extends Component {
                     to="/favorites"
                     activeClassName="active"
                   >
-                    My Favorites
+                    My Favorites (
+                    <span className="text-danger">
+                      {this.props.favoriteLength}
+                    </span>
+                    )
                   </NavLink>
                 </li>
               </ul>
@@ -88,6 +93,7 @@ class SearchMovies extends Component {
                   <button
                     className="btn btn-success my-2 my-sm-0"
                     type="submit"
+                    onClick={() => history.push('/')}
                   >
                     Search
                   </button>
@@ -109,4 +115,10 @@ const formWrapped = reduxForm({
   form: 'searchMovie',
 })(SearchMovies);
 
-export default connect(null, { listMovies })(formWrapped);
+const mapStateToProps = (state) => {
+  return {
+    favoriteLength: Object.keys(state.favoriteMovie).length,
+  };
+};
+
+export default connect(mapStateToProps, { listMovies })(formWrapped);

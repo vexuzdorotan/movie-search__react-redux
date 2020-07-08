@@ -7,7 +7,7 @@ import { readMovies, deleteMovie } from '../../actions';
 class ReadMovies extends Component {
   displayListMovies() {
     if (Object.entries(this.props.movies).length === 0) {
-      return <div className="text-center">Loading...</div>;
+      return <div>Your favorites will display here...</div>;
     }
 
     return this.props.movies.map((movie) => {
@@ -45,7 +45,7 @@ class ReadMovies extends Component {
     return (
       <Fragment>
         <section id="read-movies">
-          <div className="bg-dark text-center py-5">
+          <div className="bg-dark text-center">
             <div className="container">
               <div className="row">
                 <div className="card-columns p-2">

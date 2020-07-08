@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { readMovies, readMovie } from '../../actions';
+import { readMovie } from '../../actions';
 
 class ReadMovie extends Component {
   componentDidMount() {
-    // this.props.readMovies();
     const { id } = this.props.match.params;
     this.props.readMovie(id);
   }
@@ -43,9 +42,6 @@ class ReadMovie extends Component {
                           ? this.props.movie.reaction
                           : '*No reaction essay yet. Please add.*'}
                       </p>
-                      {/* <a href="#" className="stretched-link">
-                        Continue reading
-                      </a> */}
                     </div>
                   </div>
                 </div>
