@@ -2,9 +2,18 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import MyModal from '../MyModal';
 import { readMovies, deleteMovie } from '../../actions';
 
 class ReadMovies extends Component {
+  myModal = (obj) => {
+    this.showModal = obj && obj.handleShow;
+  };
+
+  showMyModal = (heading, body) => {
+    this.showModal(heading, body);
+  };
+
   displayListMovies() {
     if (Object.entries(this.props.movies).length === 0) {
       return <div>Your favorites will display here...</div>;
@@ -30,7 +39,13 @@ class ReadMovies extends Component {
             Edit
           </Link>
           <button
-            onClick={() => this.props.deleteMovie(movie.id)}
+            onClick={() => {
+              this.props.deleteMovie(movie.id);
+              this.showMyModal(
+                'Deleted Successfully!',
+                `${movie.Title} deleted successfully!`
+              );
+            }}
             className="btn btn-sm btn-danger mx-3 mb-3"
             style={{ zIndex: 5 }}
           >
@@ -44,6 +59,7 @@ class ReadMovies extends Component {
   render() {
     return (
       <Fragment>
+        <MyModal ref={this.myModal} />
         <section id="read-movies">
           <div className="bg-dark text-center">
             <div className="container">

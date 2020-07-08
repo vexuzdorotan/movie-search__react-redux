@@ -9,8 +9,9 @@ import ReadMovies from './Movies/ReadMovies';
 import CreateMovie from './Movies/CreateMovie';
 import ReadMovie from './Movies/ReadMovie';
 import UpdateMovie from './Movies/UpdateMovie';
-import DeleteMovie from './Movies/DeleteMovie';
 import NoMatch from './NoMatch';
+
+import MyModal from './MyModal';
 
 class App extends Component {
   render() {
@@ -37,11 +38,7 @@ class App extends Component {
               exact
               component={UpdateMovie}
             ></Route>
-            <Route
-              path="/favorites/delete/:id"
-              exact
-              component={DeleteMovie}
-            ></Route>
+            <Route path="/test" exact component={MyModal}></Route>
             <Route component={NoMatch}></Route>
           </Switch>
         </Router>

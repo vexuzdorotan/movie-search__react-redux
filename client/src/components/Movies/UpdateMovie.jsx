@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
 
+import history from '../../history';
 import { readMovie, updateMovie } from '../../actions';
 
 class UpdateMovie extends Component {
@@ -16,13 +17,13 @@ class UpdateMovie extends Component {
 
   renderList() {
     if (!this.props.movie) {
-      return console.log('Loading');
+      return;
     }
 
     return (
       <Fragment>
         <section id="list-movie">
-          <div className="bg-dark text-center py-5 mt-5">
+          <div className="bg-dark text-center py-5">
             <div className="container">
               <div className="row">
                 <div className="col">
@@ -32,9 +33,6 @@ class UpdateMovie extends Component {
                       <div className="mb-1 text-muted">
                         {this.props.movie.Year}
                       </div>
-                      {/* <p className="card-text mt-5 mb-auto">
-                        {this.props.movie.reaction}
-                      </p> */}
                       <form
                         onSubmit={this.props.handleSubmit(this.onFormSubmit)}
                       >
@@ -51,13 +49,11 @@ class UpdateMovie extends Component {
                         <button
                           className="btn btn-success my-2 my-sm-0"
                           type="submit"
+                          onClick={() => history.push('/favorites')}
                         >
                           Update
                         </button>
                       </form>
-                      {/* <a href="#" className="stretched-link">
-                        Continue reading
-                      </a> */}
                     </div>
                   </div>
                 </div>

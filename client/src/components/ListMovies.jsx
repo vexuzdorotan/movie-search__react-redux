@@ -4,8 +4,16 @@ import { connect } from 'react-redux';
 
 import favorites from '../api/favorites';
 import { listMovies, createMovies } from '../actions';
-import Modal from '../components/Modal';
+import MyModal from './MyModal';
 class ListMovies extends Component {
+  myModal = (obj) => {
+    this.showModal = obj && obj.handleShow;
+  };
+
+  showMyModal = (heading, body) => {
+    this.showModal(heading, body);
+  };
+
   addToFavorites = async (movie) => {
     const fetchFavorites = await favorites.get('/favorites');
     const imdbAlreadyExists = fetchFavorites.data.some(
@@ -13,12 +21,15 @@ class ListMovies extends Component {
     );
 
     if (imdbAlreadyExists) {
-      console.log('Movie already added!');
-      return <Modal />;
-      // return alert('Movie already added!');
+      this.showMyModal('Already Existed!', `${movie.Title} already existed!`);
+      return;
     }
 
     this.props.createMovies({ ...movie });
+    this.showMyModal(
+      'Added Successfully!',
+      `${movie.Title} added successfully!`
+    );
   };
 
   displayListMovies() {
@@ -49,10 +60,12 @@ class ListMovies extends Component {
   render() {
     return (
       <Fragment>
+        <MyModal ref={this.myModal} />;
         <section id="list-movie">
           <div className="bg-dark text-center">
             <div className="container">
               <div className="row">
+                <MyModal />
                 <div className="card-columns p-2">
                   {this.displayListMovies()}
                 </div>
