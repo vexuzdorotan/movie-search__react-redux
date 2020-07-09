@@ -36,7 +36,11 @@ class ReadMovies extends Component {
             to={`/favorites/update/${movie.id}`}
             className="btn btn-sm btn-warning mx-3 mb-3"
           >
-            Edit
+            {movie.reaction === '' ? (
+              <span className="text-danger">Add Reaction</span>
+            ) : (
+              <span>Edit Reaction</span>
+            )}
           </Link>
           <button
             onClick={() => {

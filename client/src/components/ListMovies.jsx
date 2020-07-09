@@ -6,6 +6,10 @@ import favorites from '../api/favorites';
 import { listMovies, createMovies } from '../actions';
 import MyModal from './MyModal';
 class ListMovies extends Component {
+  componentDidUpdate() {
+    this.searchError(this.props.movies.Response);
+  }
+
   myModal = (obj) => {
     this.showModal = obj && obj.handleShow;
   };
@@ -15,7 +19,17 @@ class ListMovies extends Component {
   };
 
   addToFavorites = async (movie) => {
-    const fetchFavorites = await favorites.get('/favorites');
+    let userId = this.props.auth.userId;
+    if (userId === null) {
+      userId = 0;
+    }
+
+    const fetchFavorites = await favorites.get('/favorites', {
+      params: {
+        userId: userId,
+      },
+    });
+
     const imdbAlreadyExists = fetchFavorites.data.some(
       (favorite) => favorite.imdbID === movie.imdbID
     );
@@ -32,12 +46,18 @@ class ListMovies extends Component {
     );
   };
 
+  searchError = (val) => {
+    if (val === 'False') {
+      this.showMyModal(`Invalid Input`, `${this.props.movies.Error}`);
+    }
+  };
+
   displayListMovies() {
-    if (this.props.movies.length === 0) {
+    if (!this.props.movies.Search) {
       return <div>Your searches will display here...</div>;
     }
 
-    return this.props.movies.map((movie) => {
+    return this.props.movies.Search.map((movie) => {
       return (
         <div
           className="card"
@@ -65,7 +85,6 @@ class ListMovies extends Component {
           <div className="bg-dark text-center">
             <div className="container">
               <div className="row">
-                <MyModal />
                 <div className="card-columns p-2">
                   {this.displayListMovies()}
                 </div>
@@ -80,7 +99,7 @@ class ListMovies extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    movies: Object.values(state.searchMovie),
+    movies: state.searchMovie,
     auth: state.auth,
   };
 };

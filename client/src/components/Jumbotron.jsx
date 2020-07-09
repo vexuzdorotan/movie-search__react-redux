@@ -18,7 +18,7 @@ class Jumbotron extends Component {
   render() {
     return (
       <div className="jumbotron text-light bg-dark m-0 mt-5 pb-2">
-        <h1 className="display-4">
+        <h1 className="display-4 text-warning">
           You have {this.props.favoriteLength}{' '}
           {pluralize('favorite', this.props.favoriteLength)}
           {this.props.jumbotronState.display}

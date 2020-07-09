@@ -1,5 +1,6 @@
 import omdb from '../api/omdb';
 import favorites from '../api/favorites';
+import history from '../history';
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -58,10 +59,15 @@ export const listMovies = (searchValue) => async (dispatch) => {
     },
   });
 
+  if (response.data.Error) {
+  }
+
   dispatch({
     type: LIST_MOVIES,
-    payload: response.data.Search,
+    payload: response.data,
   });
+
+  history.push('/');
 };
 
 export const createMovies = (favObj) => async (dispatch, getState) => {
@@ -123,6 +129,8 @@ export const updateMovie = (id, formValues) => async (dispatch) => {
     type: UPDATE_MOVIE,
     payload: response.data,
   });
+
+  history.push('/favorites');
 };
 
 export const deleteMovie = (id) => async (dispatch) => {

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
 
-import history from '../../history';
 import { readMovie, updateMovie } from '../../actions';
 
 class UpdateMovie extends Component {
@@ -49,7 +48,6 @@ class UpdateMovie extends Component {
                         <button
                           className="btn btn-success my-2 my-sm-0"
                           type="submit"
-                          onClick={() => history.push('/favorites')}
                         >
                           Update
                         </button>

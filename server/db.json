@@ -1,3 +1,114 @@
 {
-  "favorites": []
+  "favorites": [
+    {
+      "Title": "The Karate Kid",
+      "Year": "1984",
+      "imdbID": "tt0087538",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      "userId": 0,
+      "reaction": "asd",
+      "id": 1
+    },
+    {
+      "Title": "The Karate Kid Part III",
+      "Year": "1989",
+      "imdbID": "tt0097647",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BODk0NzA4MTMtNGQ3Zi00OTdlLThiZmQtOTI0YWEyNDFiMTg2XkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg",
+      "userId": 0,
+      "reaction": "asd",
+      "id": 2
+    },
+    {
+      "Title": "The Karate Kid",
+      "Year": "1984",
+      "imdbID": "tt0087538",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+      "userId": "112383145411719833286",
+      "reaction": "",
+      "id": 3
+    },
+    {
+      "Title": "The Karate Kid Part III",
+      "Year": "1989",
+      "imdbID": "tt0097647",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BODk0NzA4MTMtNGQ3Zi00OTdlLThiZmQtOTI0YWEyNDFiMTg2XkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg",
+      "userId": "112383145411719833286",
+      "reaction": "",
+      "id": 4
+    },
+    {
+      "Title": "The Avengers",
+      "Year": "2012",
+      "imdbID": "tt0848228",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "userId": "112383145411719833286",
+      "reaction": "x",
+      "id": 5
+    },
+    {
+      "Title": "Avengers: Age of Ultron",
+      "Year": "2015",
+      "imdbID": "tt2395427",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+      "userId": "112383145411719833286",
+      "reaction": "",
+      "id": 6
+    },
+    {
+      "Title": "The Avengers",
+      "Year": "2012",
+      "imdbID": "tt0848228",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "userId": 0,
+      "reaction": "asddsa",
+      "id": 7
+    },
+    {
+      "Title": "Avengers: Age of Ultron",
+      "Year": "2015",
+      "imdbID": "tt2395427",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+      "userId": 0,
+      "reaction": "dsa",
+      "id": 8
+    },
+    {
+      "Title": "The Avengers",
+      "Year": "2012",
+      "imdbID": "tt0848228",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "userId": "104094497751363296050",
+      "reaction": "",
+      "id": 9
+    },
+    {
+      "Title": "Karate Cop",
+      "Year": "1991",
+      "imdbID": "tt0102187",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNmFmY2M4NTEtYTkwMC00YTJkLWI0MDItNDcwYjJkMWQyZGNkXkEyXkFqcGdeQXVyMTQ3Njg3MQ@@._V1_SX300.jpg",
+      "userId": "112383145411719833286",
+      "reaction": "",
+      "id": 10
+    },
+    {
+      "Title": "The King's Avatar",
+      "Year": "2017–",
+      "imdbID": "tt6859260",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZjIyMjE5ZDYtMTQxNC00NTEzLTgwYzYtMmM0NDg3OWFlYWM5XkEyXkFqcGdeQXVyNjMxNzQ2NTQ@._V1_SX300.jpg",
+      "userId": 0,
+      "reaction": "",
+      "id": 11
+    }
+  ]
 }
