@@ -4,11 +4,11 @@ body {
 }
 
 /* Card */
-.card {
+/* .card .card-img-top {
   transition: transform 0.3s;
 }
 
-.card:hover {
+.card .card-img-top:hover {
   background: #5cb85c;
   transform: scale(1.03);
-}
+} */

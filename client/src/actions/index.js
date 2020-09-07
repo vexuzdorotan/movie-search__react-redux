@@ -102,15 +102,17 @@ export const readMovies = () => async (dispatch, getState) => {
     },
   });
 
+  console.log(response.data);
+
   dispatch({
     type: READ_MOVIES,
     payload: response.data,
   });
 };
 
-export const readMovie = (id) => async (dispatch, getState) => {
+export const readMovie = (_id) => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await favorites.get(`/favorites/${id}`);
+  const response = await favorites.get(`/favorites/${_id}`);
 
   if (response.data.userId !== userId) {
     return (response.data = { Error: 'Not found!' });
@@ -122,8 +124,8 @@ export const readMovie = (id) => async (dispatch, getState) => {
   });
 };
 
-export const updateMovie = (id, formValues) => async (dispatch) => {
-  const response = await favorites.patch(`favorites/${id}`, formValues);
+export const updateMovie = (_id, formValues) => async (dispatch) => {
+  const response = await favorites.patch(`favorites/${_id}`, formValues);
 
   dispatch({
     type: UPDATE_MOVIE,
@@ -133,11 +135,11 @@ export const updateMovie = (id, formValues) => async (dispatch) => {
   history.push('/favorites');
 };
 
-export const deleteMovie = (id) => async (dispatch) => {
-  await favorites.delete(`/favorites/${id}`);
+export const deleteMovie = (_id) => async (dispatch) => {
+  await favorites.delete(`/favorites/${_id}`);
 
   dispatch({
     type: DELETE_MOVIE,
-    payload: id,
+    payload: _id,
   });
 };

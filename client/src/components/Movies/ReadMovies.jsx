@@ -21,40 +21,46 @@ class ReadMovies extends Component {
 
     return this.props.movies.map((movie) => {
       return (
-        <div className="card" key={movie.id}>
-          <div className="card-body">
-            <Link to={`/favorites/read/${movie.id}`}>
-              <img
-                className="card-img-top"
-                src={movie.Poster}
-                alt={movie.Title}
-              />
-            </Link>
+        <div className="col" key={movie._id}>
+          <div className="card m-3">
+            <div className="card-body">
+              <Link to={`/favorites/read/${movie._id}`}>
+                <img
+                  className="card-img-top"
+                  src={movie.Poster}
+                  alt={movie.Title}
+                  // style={{ maxHeight: '400px' }}
+                />
+              </Link>
+            </div>
+            <h5 className="card-title text-dark">{movie.Title}</h5>
+            <div className="d-flex justify-content-center">
+              <Link
+                to={`/favorites/update/${movie._id}`}
+                // className="btn btn-sm btn-warning mx-3 mb-3"
+                className={
+                  movie.reaction === ''
+                    ? 'btn btn-sm btn-success mx-3 mb-3'
+                    : 'btn btn-sm btn-warning mx-3 mb-3'
+                }
+              >
+                <span>{movie.reaction === '' ? 'Add' : 'Edit'} Reaction</span>
+              </Link>
+              <button
+                onClick={() => {
+                  this.props.deleteMovie(movie._id);
+                  this.showMyModal(
+                    'Deleted Successfully!',
+                    `${movie.Title} deleted successfully!`
+                  );
+                }}
+                className="btn btn-sm btn-danger mx-3 mb-3"
+                style={{ zIndex: 5 }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
-          <h5 className="card-title text-dark">{movie.Title}</h5>
-          <Link
-            to={`/favorites/update/${movie.id}`}
-            className="btn btn-sm btn-warning mx-3 mb-3"
-          >
-            {movie.reaction === '' ? (
-              <span className="text-danger">Add Reaction</span>
-            ) : (
-              <span>Edit Reaction</span>
-            )}
-          </Link>
-          <button
-            onClick={() => {
-              this.props.deleteMovie(movie.id);
-              this.showMyModal(
-                'Deleted Successfully!',
-                `${movie.Title} deleted successfully!`
-              );
-            }}
-            className="btn btn-sm btn-danger mx-3 mb-3"
-            style={{ zIndex: 5 }}
-          >
-            Delete
-          </button>
         </div>
       );
     });
@@ -67,10 +73,8 @@ class ReadMovies extends Component {
         <section id="read-movies">
           <div className="bg-dark text-center">
             <div className="container">
-              <div className="row">
-                <div className="card-columns p-2">
-                  {this.displayListMovies()}
-                </div>
+              <div className="row row-cols-1 row-cols-lg-3">
+                {this.displayListMovies()}
               </div>
             </div>
           </div>

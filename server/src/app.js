@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use('/api/favorites', favoriteRouters);
+app.use('/favorites', favoriteRouters);
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}.`);
