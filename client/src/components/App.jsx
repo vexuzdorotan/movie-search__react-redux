@@ -19,7 +19,7 @@ class App extends Component {
       <Fragment>
         <Router history={history}>
           <SearchMovies />
-          <Route component={Jumbotron}></Route>
+
           <Switch>
             <Route path="/" exact component={ListMovies}></Route>
             <Route path="/favorites" exact component={ReadMovies}></Route>
@@ -41,6 +41,7 @@ class App extends Component {
             <Route path="/test" exact component={MyModal}></Route>
             <Route component={NoMatch}></Route>
           </Switch>
+          <Route component={Jumbotron}></Route>
         </Router>
       </Fragment>
     );

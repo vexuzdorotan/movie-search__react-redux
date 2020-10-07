@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { readMovie } from '../../actions';
@@ -21,7 +22,7 @@ class ReadMovie extends Component {
             <div className="container">
               <div className="row">
                 <div className="col">
-                  <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div className="row no-gutters overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div className="col-auto col-lg-6 mx-auto">
                       <img
                         src={this.props.movie.Poster}
@@ -42,6 +43,20 @@ class ReadMovie extends Component {
                           ? this.props.movie.reaction
                           : '*No reaction essay yet. Please add.*'}
                       </p>
+                      <Link
+                        to={`/favorites/update/${this.props.movie._id}`}
+                        // className="btn btn-sm btn-warning mx-3 mb-3"
+                        className={
+                          this.props.movie.reaction === ''
+                            ? 'btn btn-sm btn-success mx-3 mb-3'
+                            : 'btn btn-sm btn-warning mx-3 mb-3'
+                        }
+                      >
+                        <span>
+                          {this.props.movie.reaction === '' ? 'Add' : 'Edit'}{' '}
+                          Reaction
+                        </span>
+                      </Link>
                     </div>
                   </div>
                 </div>

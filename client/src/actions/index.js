@@ -39,8 +39,8 @@ export const jumbotron = (pathname) => async (dispatch, getState) => {
   } else if (pathname === '/favorites') {
     textData = {
       display: ' here!',
-      lead:
-        'Click the poster image to view details. Click "Edit" to add your reaction essay. Click "Delete" to remove your selected movie or series on the list.',
+      lead: '',
+      // 'Click the poster image to view details.',
       paragraph:
         'This app is inspired by YTS (aka YIFY). It is practically became an overnight sensation among movie geeks by hosting high-quality torrents of recently released movies.',
     };

@@ -3,6 +3,14 @@ body {
   color: #f8f9fa;
 }
 
+#list-movie img {
+  width: auto;
+}
+
+header {
+  height: 3.5rem;
+}
+
 /* Card */
 /* .card .card-img-top {
   transition: transform 0.3s;
