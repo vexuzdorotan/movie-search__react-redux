@@ -31,7 +31,7 @@ export const jumbotron = (pathname) => async (dispatch, getState) => {
 
   if (pathname === '/') {
     textData = {
-      display: '. Add more!',
+      display: '. Search and click to add more!',
       lead: 'Click posters to add to your favorites.',
       paragraph:
         'A movie (or series, games, etc.) searching app! Sign in with your Google account, save your favorites, and add your reaction essay. This app is using OMDb API (The Open Movie Database). It is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by their users.',
@@ -39,8 +39,7 @@ export const jumbotron = (pathname) => async (dispatch, getState) => {
   } else if (pathname === '/favorites') {
     textData = {
       display: ' here!',
-      lead: '',
-      // 'Click the poster image to view details.',
+      lead: 'Click the poster image to view details.',
       paragraph:
         'This app is inspired by YTS (aka YIFY). It is practically became an overnight sensation among movie geeks by hosting high-quality torrents of recently released movies.',
     };
@@ -132,7 +131,8 @@ export const updateMovie = (_id, formValues) => async (dispatch) => {
     payload: response.data,
   });
 
-  history.push('/favorites');
+  // history.push('/favorites');
+  history.goBack();
 };
 
 export const deleteMovie = (_id) => async (dispatch) => {

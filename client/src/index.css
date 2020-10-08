@@ -3,12 +3,23 @@ body {
   color: #f8f9fa;
 }
 
-#list-movie img {
-  width: auto;
+.list-movie img {
+  /* width: auto; */
+  cursor: pointer;
 }
 
 header {
   height: 3.5rem;
+}
+
+.spinner-grow {
+  width: 5rem;
+  height: 5rem;
+  margin-top: 25vh;
+}
+
+#read-movies img {
+  /* max-width: 14rem; */
 }
 
 /* Card */

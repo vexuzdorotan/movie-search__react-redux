@@ -17,8 +17,8 @@ class ReadMovie extends Component {
 
     return (
       <Fragment>
-        <section id="list-movie">
-          <div className="bg-dark text-center py-5 mt-5">
+        <section className="list-movie">
+          <div className="bg-dark text-center py-5">
             <div className="container">
               <div className="row">
                 <div className="col">
@@ -30,7 +30,7 @@ class ReadMovie extends Component {
                         alt={this.props.movie.Title}
                       />
                     </div>
-                    <div className="col-lg-6 p-4 d-flex flex-column position-static">
+                    <div className="col-lg-6 d-flex flex-column position-static">
                       <strong className="d-inline-block mb-2 text-primary">
                         {this.props.movie.Type.toUpperCase()}
                       </strong>
@@ -38,7 +38,7 @@ class ReadMovie extends Component {
                       <div className="mb-1 text-muted">
                         {this.props.movie.Year}
                       </div>
-                      <p className="card-text mb-auto">
+                      <p className="card-text font-italic">
                         {this.props.movie.reaction
                           ? this.props.movie.reaction
                           : '*No reaction essay yet. Please add.*'}
@@ -48,8 +48,8 @@ class ReadMovie extends Component {
                         // className="btn btn-sm btn-warning mx-3 mb-3"
                         className={
                           this.props.movie.reaction === ''
-                            ? 'btn btn-sm btn-success mx-3 mb-3'
-                            : 'btn btn-sm btn-warning mx-3 mb-3'
+                            ? 'btn btn-sm btn-success w-50 mx-auto mx-3'
+                            : 'btn btn-sm btn-warning w-50 mx-auto mx-3'
                         }
                       >
                         <span>

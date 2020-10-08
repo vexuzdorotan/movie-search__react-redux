@@ -52,44 +52,50 @@ class ListMovies extends Component {
     }
   };
 
-  displayListMovies() {
-    if (!this.props.movies.Search) {
-      return <div>Your searches will display here...</div>;
-    }
-
+  listMovies() {
     return this.props.movies.Search.map((movie) => {
       return (
-        <div
-          className="card"
-          key={movie.imdbID}
-          onClick={() => this.addToFavorites(movie)}
-        >
-          <div className="card-body">
-            <img
-              className="card-img-top"
-              src={movie.Poster}
-              alt={movie.Title}
-            />
+        <div className="col p-2" key={movie.imdbID}>
+          <div className="card">
+            <div className="card-body">
+              <img
+                className="card-img-top"
+                src={movie.Poster}
+                alt={movie.Title}
+                title="Add to Favorites"
+                onClick={() => this.addToFavorites(movie)}
+              />
+            </div>
+            <h5 className="card-title text-dark">{movie.Title}</h5>
           </div>
-          <h5 className="card-title text-dark">{movie.Title}</h5>
         </div>
       );
     });
   }
 
+  displayListMovies() {
+    if (!this.props.movies.Search) {
+      return (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-grow text-success" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="row row-cols-1 row-cols-lg-3">{this.listMovies()}</div>
+    );
+  }
+
   render() {
     return (
       <Fragment>
-        <MyModal ref={this.myModal} />;
-        <section id="list-movie">
+        <MyModal ref={this.myModal} />
+        <section className="list-movie">
           <div className="bg-dark text-center">
-            <div className="container">
-              <div className="row">
-                <div className="card-columns p-2">
-                  {this.displayListMovies()}
-                </div>
-              </div>
-            </div>
+            <div className="container">{this.displayListMovies()}</div>
           </div>
         </section>
       </Fragment>

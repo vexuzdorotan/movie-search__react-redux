@@ -14,15 +14,11 @@ class ReadMovies extends Component {
     this.showModal(heading, body);
   };
 
-  displayListMovies() {
-    if (Object.entries(this.props.movies).length === 0) {
-      return <div>Your favorites will display here...</div>;
-    }
-
+  listMovies() {
     return this.props.movies.map((movie) => {
       return (
-        <div className="col" key={movie._id}>
-          <div className="card m-3">
+        <div className="col px-0" key={movie._id}>
+          <div className="card m-2">
             <div className="card-body">
               <Link to={`/favorites/read/${movie._id}`}>
                 <img
@@ -66,17 +62,29 @@ class ReadMovies extends Component {
     });
   }
 
+  displayListMovies() {
+    if (Object.entries(this.props.movies).length === 0) {
+      return (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-grow text-success" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="row row-cols-1 row-cols-lg-3">{this.listMovies()}</div>
+    );
+  }
+
   render() {
     return (
       <Fragment>
         <MyModal ref={this.myModal} />
         <section id="read-movies">
           <div className="bg-dark text-center">
-            <div className="container">
-              <div className="row row-cols-1 row-cols-lg-3">
-                {this.displayListMovies()}
-              </div>
-            </div>
+            <div className="container">{this.displayListMovies()}</div>
           </div>
         </section>
       </Fragment>
