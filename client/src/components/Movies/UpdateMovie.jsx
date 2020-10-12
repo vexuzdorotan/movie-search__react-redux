@@ -38,10 +38,10 @@ class UpdateMovie extends Component {
                         <div>
                           <label>Enter your reaction:</label>
                           <Field
-                            className="form-control mr-sm-2 mb-5"
+                            className="form-control mr-sm-2 mb-2"
                             name="reaction"
                             component="textarea"
-                            rows="15"
+                            rows="10"
                           />
                         </div>
 

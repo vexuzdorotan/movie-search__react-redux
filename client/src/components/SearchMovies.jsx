@@ -59,7 +59,7 @@ class SearchMovies extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                   <NavLink
                     exact
                     className="nav-link"
@@ -69,7 +69,7 @@ class SearchMovies extends Component {
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                   <NavLink
                     className="nav-link"
                     to="/favorites"
@@ -105,6 +105,7 @@ class SearchMovies extends Component {
 
                   <button
                     className="btn btn-success my-2 my-sm-0"
+                    data-toggle="collapse" data-target=".navbar-collapse.show"
                     type="submit"
                   >
                     Search

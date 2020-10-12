@@ -54,6 +54,7 @@ class GoogleAuth extends React.Component {
         <button
           onClick={this.onSignOutClick}
           className="btn btn-outline-danger mr-2 my-2 my-sm-0"
+          data-toggle="collapse" data-target=".navbar-collapse.show"
         >
           <i className="google icon"></i>
           Sign Out
