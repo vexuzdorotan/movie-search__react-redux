@@ -17,9 +17,7 @@ if (process.env.NODE_ENV !== 'development') {
   app.use(express.static(path.join('public')));
 }
 
-if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
-}
 
 app.use('/api/favorites', favoriteRouters);
 
