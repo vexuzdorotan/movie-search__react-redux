@@ -11,18 +11,19 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
-app.use(cors({ origin: '*' }));
 
 if (process.env.NODE_ENV !== 'development') {
   app.use(express.static(path.join('public')));
 }
 
-  app.use(morgan('dev'));
+app.use(cors({ origin: '*' }));
+
+app.use(morgan('dev'));
 
 app.use('/api/favorites', favoriteRouters);
 
 if (process.env.NODE_ENV !== 'development') {
-  app.use((req, res, next) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
   });
 }

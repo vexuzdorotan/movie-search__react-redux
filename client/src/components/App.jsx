@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import history from '../history';
 import SearchMovies from './SearchMovies';
@@ -40,6 +40,7 @@ class App extends Component {
             ></Route>
             <Route path="/test" exact component={MyModal}></Route>
             <Route component={NoMatch}></Route>
+            <Redirect to="/" />
           </Switch>
         </Router>
       </Fragment>

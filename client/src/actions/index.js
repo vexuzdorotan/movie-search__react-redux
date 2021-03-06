@@ -101,8 +101,6 @@ export const readMovies = () => async (dispatch, getState) => {
     },
   });
 
-  console.log(response.data);
-
   dispatch({
     type: READ_MOVIES,
     payload: response.data,
