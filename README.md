@@ -1,4 +1,4 @@
-## YTS.vex | Movies Search Web App
+## moViEX.UZ | Movies Search Web App
 
 A movie searching app and save your favorites to your account!
 
@@ -24,14 +24,14 @@ Adding Environment Variables:
 
 Create `.env.development.local` file in /client directory:
 
-Key  | Example Value
-------------- | -------------
-REACT_APP_KEY | 123456789876-asd123asd123asd123asd123asd12345.apps.googleusercontent.com
+| Key           | Example Value                                                            |
+| ------------- | ------------------------------------------------------------------------ |
+| REACT_APP_KEY | 123456789876-asd123asd123asd123asd123asd12345.apps.googleusercontent.com |
 
 Also on /server/config, create `config.env`:
 
-Key  | Example Value
-------------- | -------------
-PORT  | 5000
-MONGO_URI_LOCAL | mongodb://127.0.0.1:27017/ytsvex
-NODE_ENV | development
+| Key             | Example Value                      |
+| --------------- | ---------------------------------- |
+| PORT            | 5001                               |
+| MONGO_URI_LOCAL | mongodb://127.0.0.1:27017/moviexuz |
+| NODE_ENV        | development                        |
